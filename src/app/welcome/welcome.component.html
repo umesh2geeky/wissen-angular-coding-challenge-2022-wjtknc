@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="mb-2">
+    <h3 class="h6 mt-1 mb-4 ">Dear {{ email }}, Welcome to Wissen Coding Challenge!</h3>
+    <div class="d-flex flex-row-reverse bd-highlight"><button type="button" class="btn btn-primary" (click)="logout()">Logout</button></div>
+  </div>
+
+  <div *ngIf="!user">{{ LoadingData }}</div>
+
+  <div *ngIf="user">
+    <table class="table" *ngFor="let data of user">
+      <tbody>
+        <tr>
+          <td style="width:25%">{{ data.name | uppercase}}</td>
+          <td style="width:25%">Year: {{ data.year }}</td>
+          <td style="width:25%" [style.background]="data.color">{{ data.color }}</td>
+          <td style="width:25%">{{ data.pantone_value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
